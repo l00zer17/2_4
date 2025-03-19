@@ -1,5 +1,7 @@
 import java.util.Scanner;
+
 public class Main {
+
     public static boolean czyProstokątny(double a, double b, double c) {
         double[] boki = {a, b, c};
         java.util.Arrays.sort(boki);
@@ -9,6 +11,7 @@ public class Main {
         return 0.5 * a * b;
     }
     public static void main(String[] args) {
+    
         Scanner scanner = new Scanner(System.in);
         System.out.print("Podaj długość pierwszego boku: ");
         double a = scanner.nextDouble();
@@ -17,13 +20,19 @@ public class Main {
         System.out.print("Podaj długość trzeciego boku: ");
         double c = scanner.nextDouble();
         boolean isRightTriangle = czyProstokątny(a, b, c);
-        if (isRightTriangle) {
-            System.out.println("Trójkąt jest prostokątny.");
-            double pole = obliczPole(a, b);
-            System.out.println("Pole trójkąta prostokątnego wynosi: " + pole);
-        } else {
-            System.out.println("Trójkąt nie jest prostokątny.");
+        switch (isRightTriangle ? 1 : 0) {
+            case 1:
+                System.out.println("Trójkąt jest prostokątny.");
+                double pole = obliczPole(a, b);
+                System.out.println("Pole trójkąta prostokątnego wynosi: " + pole);
+                break;
+            case 0:
+                System.out.println("Trójkąt nie jest prostokątny.");
+                break;
+            default:
+                System.out.println("Błąd.");
         }
+
         scanner.close();
     }
 }
