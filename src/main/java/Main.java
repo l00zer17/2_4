@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Main {
     public static boolean czyProstokątny(double a, double b, double c) {
         double[] boki = {a, b, c};
@@ -17,7 +16,8 @@ public class Main {
         double b = scanner.nextDouble();
         System.out.print("Podaj długość trzeciego boku: ");
         double c = scanner.nextDouble();
-        if (czyProstokątny(a, b, c)) {
+        boolean isRightTriangle = czyProstokątny(a, b, c);
+        if (isRightTriangle) {
             System.out.println("Trójkąt jest prostokątny.");
             double pole = obliczPole(a, b);
             System.out.println("Pole trójkąta prostokątnego wynosi: " + pole);
@@ -26,5 +26,4 @@ public class Main {
         }
         scanner.close();
     }
-
 }
